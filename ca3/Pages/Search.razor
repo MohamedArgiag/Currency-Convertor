@@ -1,0 +1,53 @@
+﻿@page "/search"
+@using Newtonsoft.Json.Linq;
+
+<h3>Search for Company</h3>
+
+<div class="col col-sm" style="border-color:black; border-radius:10px">
+    <label>Currency Conversion</label>
+    <input @bind-value="@CurrencySearch" />
+    <button type="button" class="btn btn-primary" @onclick="TheButtonClicked"> Search</button>
+</div>
+
+
+
+
+
+@code {
+
+    string CurrencySearch = "";
+
+    private async void TheButtonClicked()
+    {
+        try
+        {
+            HttpClient clnt = new HttpClient();
+
+            String jsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + ".json");
+            JObject jsonObj = JObject.Parse(jsonString);
+            jsonObj.Remove("date");
+            //Console.WriteLine(jsonObj[CurrencySearch]);
+
+
+
+
+            Dictionary<string, double> dictObj = jsonObj[CurrencySearch].ToObject<Dictionary<string, double>>();
+
+            //Console.WriteLine(dictObj[CurrencySearch]);
+
+
+            foreach (var item in jsonObj[CurrencySearch])
+                {
+                    Console.WriteLine(item);
+                }
+
+        }
+        catch (Exception)
+        {
+
+
+        }
+    }
+
+
+}

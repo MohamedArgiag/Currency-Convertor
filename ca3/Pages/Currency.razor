@@ -1,0 +1,90 @@
+﻿@page "/currency"
+@using Newtonsoft.Json.Linq;
+
+<h3>View Zip Info</h3>
+<!--
+   <div class="col col-sm" style="border-color:black; border-radius:10px">
+       <input type="number" />
+       <select>
+           <option value="currency">Currency</option>
+       </select>
+   </div>
+   <div class="col col-sm" style="border-color:black; border-radius:10px">
+       <input type="number" />
+       <select>
+           <option value="currency">Currency</option>
+       </select>
+       <button class="btn-outline-primary" @onclick="TheButtonClicked"></button>
+   </div>
+-->
+
+<div class="col col-sm" style="border-color:black; border-radius:10px">
+    <label>Currency Conversion</label>
+    <input @bind-value="@CurrencySearch" />
+    <label>Currency</label>
+    <input @bind-value="@CurrencySearch2" />
+    <button class="btn-outline-primary" @onclick="TheButtonClicked"></button>
+</div>
+
+@code {
+
+    string CurrencySearch = "";
+    string CurrencySearch2 = "";
+
+    private async void TheButtonClicked()
+    {
+        try
+        {
+            HttpClient clnt = new HttpClient();
+            //Currencycon Response = await clnt.GetFromJsonAsync<Currencycon>("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json");
+
+            //string test = Response.ada;
+            //Console.WriteLine(test);
+
+
+            String jsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + "/" + CurrencySearch2 + ".json");
+            JObject jsonObj = JObject.Parse(jsonString);
+            Console.WriteLine(jsonObj);
+
+            Dictionary<string, string> dictObj = jsonObj.ToObject<Dictionary<string, string>>();
+
+            Console.WriteLine(dictObj[CurrencySearch2]);
+
+        }
+        catch (Exception)
+        {
+
+
+        }
+    }
+
+
+
+    /**
+
+        string CurrencySearch = "";
+
+        string CurrencySearch2 = "";
+
+        Currencycon Result = new Currencycon();
+        string strFeedback = "";
+
+        private async void TheButtonClicked()
+        {
+            try
+            {
+                HttpClient clnt = new HttpClient();
+                Result = await clnt.GetFromJsonAsync<Currencycon>("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + ".json");
+                double testCur = Result.eur;
+                Console.WriteLine(Result);
+
+            }
+            catch (Exception ex)
+            {
+                strFeedback = ex.Message;
+                StateHasChanged();
+
+            }
+        }
+       **/
+}
