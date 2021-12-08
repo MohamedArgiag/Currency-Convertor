@@ -642,3 +642,9 @@ C:\Users\Mohamed\Documents\ead\ca3\ca3\bin\Debug\net5.0\wwwroot\_framework\Newto
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\build-gz\Pt6FwLsV.gz
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\RazorDeclaration\Pages\Search.razor.g.cs
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\Razor\Pages\Search.razor.g.cs
+C:\Users\Mohamed\Documents\ead\ca3\ca3\bin\Debug\net5.0\wwwroot\_framework\Radzen.Blazor.dll.gz
+C:\Users\Mohamed\Documents\ead\ca3\ca3\bin\Debug\net5.0\wwwroot\_framework\System.Linq.Dynamic.Core.dll.gz
+C:\Users\Mohamed\Documents\ead\ca3\ca3\bin\Debug\net5.0\wwwroot\_framework\Radzen.Blazor.dll
+C:\Users\Mohamed\Documents\ead\ca3\ca3\bin\Debug\net5.0\wwwroot\_framework\System.Linq.Dynamic.Core.dll
+C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\build-gz\0c4j+A3V.gz
+C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\build-gz\PO7v6tYt.gz

@@ -1,7 +1,115 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-MyhtKcDhtKLLiloJrRJngXh6DNt05vjPp9AZw9YFDLk=",
+      "hash": "sha256-VrKUoLs6ey1dcgDdNZIEj298BhCZWVChOt4UkfhBVEs=",
+      "url": "_content\/Radzen.Blazor\/css\/dark-base.css"
+    },
+    {
+      "hash": "sha256-9pHFAdzDjrJ+XaruJ+fYKzSZDw7jrhQE\/\/xAQXL8Z\/M=",
+      "url": "_content\/Radzen.Blazor\/css\/dark.css"
+    },
+    {
+      "hash": "sha256-vmqPB0+eLJEv8C4DCvDd\/4cU32vU8lF41uJ4GPKhwq0=",
+      "url": "_content\/Radzen.Blazor\/css\/default-base.css"
+    },
+    {
+      "hash": "sha256-w25mQvSSJElDiwlz2G8eGKNX4\/\/3VX7\/E7FW6PAq+WQ=",
+      "url": "_content\/Radzen.Blazor\/css\/default.css"
+    },
+    {
+      "hash": "sha256-SUje5F8uozGAN1lgE3TQ\/OLhiuuFfYAT4QbO33eD6Oc=",
+      "url": "_content\/Radzen.Blazor\/css\/humanistic-base.css"
+    },
+    {
+      "hash": "sha256-yI5xaV+GGinwJQLM\/oKIbhZjwVXFCaAEz7t26v7ylpQ=",
+      "url": "_content\/Radzen.Blazor\/css\/humanistic.css"
+    },
+    {
+      "hash": "sha256-f6CZQ\/WqX+wMpuLt5FbehoJaykuqv7tzxYNuZ8BP3vY=",
+      "url": "_content\/Radzen.Blazor\/css\/software-base.css"
+    },
+    {
+      "hash": "sha256-vJBSViPm8q12653FlY6kiS+G6SoUEO2cJKyrSs9fVHA=",
+      "url": "_content\/Radzen.Blazor\/css\/software.css"
+    },
+    {
+      "hash": "sha256-oF0p\/xuj5StXFUY8bGkUWbhwOf\/yx0qE+3Ha3Kp\/i5s=",
+      "url": "_content\/Radzen.Blazor\/css\/standard-base.css"
+    },
+    {
+      "hash": "sha256-fv5bdMfyWwB4BFhkJvYrIVjnDfC+oeMNF5xAw3nD4Go=",
+      "url": "_content\/Radzen.Blazor\/css\/standard.css"
+    },
+    {
+      "hash": "sha256-lger0mqwWoFecmGrcgUsQRdrM5ogpHikzYF+NpEQ1FA=",
+      "url": "_content\/Radzen.Blazor\/fonts\/MaterialIcons-Regular.woff"
+    },
+    {
+      "hash": "sha256-aY5euu4b9B4uoPbO6pUg0M02KHH1iFkV\/DX7TpV\/l+g=",
+      "url": "_content\/Radzen.Blazor\/fonts\/roboto-v15-latin-300.woff"
+    },
+    {
+      "hash": "sha256-PrZc6Ar6Orw126gGmRpfnzIY2LU8S+T5wSSNnZ88Guo=",
+      "url": "_content\/Radzen.Blazor\/fonts\/roboto-v15-latin-700.woff"
+    },
+    {
+      "hash": "sha256-l7uYY0Ka6X\/MDNbIDTDD90VNCyGNR1jiTDC9pEG9OdM=",
+      "url": "_content\/Radzen.Blazor\/fonts\/roboto-v15-latin-regular.woff"
+    },
+    {
+      "hash": "sha256-4tJ2y83Opy9zhl\/cqC+2kN6Dyj9o+FR2zLmn9aSPwcg=",
+      "url": "_content\/Radzen.Blazor\/fonts\/SourceSansPro-Black.woff"
+    },
+    {
+      "hash": "sha256-Se1Ckp\/WChi38Ylv0M9zeWV40BrNdzJZCuL5vLArVss=",
+      "url": "_content\/Radzen.Blazor\/fonts\/SourceSansPro-BlackIt.woff"
+    },
+    {
+      "hash": "sha256-iwPDiY3GwHRvR7nxbjO1MUzZ4OIDrBnBE7JVh8uvL7Q=",
+      "url": "_content\/Radzen.Blazor\/fonts\/SourceSansPro-Bold.woff"
+    },
+    {
+      "hash": "sha256-hbpdyuMzEkbBLV46tNBW8O4fcBC1OHCZu73IKA\/wxFY=",
+      "url": "_content\/Radzen.Blazor\/fonts\/SourceSansPro-BoldIt.woff"
+    },
+    {
+      "hash": "sha256-PLpVAO2hf3ujhcFgIgpvr95XZj15sDT5TlPjBcIKjOo=",
+      "url": "_content\/Radzen.Blazor\/fonts\/SourceSansPro-ExtraLight.woff"
+    },
+    {
+      "hash": "sha256-gyjJCK9yyzeB56egUKX2oyJUAHzhrxPnuT+JB1brUjg=",
+      "url": "_content\/Radzen.Blazor\/fonts\/SourceSansPro-ExtraLightIt.woff"
+    },
+    {
+      "hash": "sha256-Yi16KO1MmnQJMcyA7nBl9RenDCtzOoi9TIYcCTDYYA0=",
+      "url": "_content\/Radzen.Blazor\/fonts\/SourceSansPro-It.woff"
+    },
+    {
+      "hash": "sha256-U\/c5uZXyrUZYibduYAqP66xUX7hjF+MuGqjty6kp+n8=",
+      "url": "_content\/Radzen.Blazor\/fonts\/SourceSansPro-Light.woff"
+    },
+    {
+      "hash": "sha256-Wz06DrCrEo8PhVFosBvtv0BwVRad1e6cHVYPrOXcTTk=",
+      "url": "_content\/Radzen.Blazor\/fonts\/SourceSansPro-LightIt.woff"
+    },
+    {
+      "hash": "sha256-FUVkwg6zvTHIIS9plEgvWa39AFMb6VCbD1LTENYjsm4=",
+      "url": "_content\/Radzen.Blazor\/fonts\/SourceSansPro-Regular.woff"
+    },
+    {
+      "hash": "sha256-0yvxUfB8+6PXLdQAnlit3rprdUByfZdrdEJe4i5AjqY=",
+      "url": "_content\/Radzen.Blazor\/fonts\/SourceSansPro-Semibold.woff"
+    },
+    {
+      "hash": "sha256-f7Kf\/RI21ULz4ITMVN+kUuGhpYP3UWYywC73o3WtAgw=",
+      "url": "_content\/Radzen.Blazor\/fonts\/SourceSansPro-SemiboldIt.woff"
+    },
+    {
+      "hash": "sha256-fell2WJgrnnvb+\/PGERFTChPV85uD7TgE8xQz1XYmZA=",
+      "url": "_content\/Radzen.Blazor\/Radzen.Blazor.js"
+    },
+    {
+      "hash": "sha256-FbXKMoIx3VTr2VkqnYpwBuk3P\/W18mZwN3SXTWpJEX4=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -97,8 +205,16 @@
       "url": "_framework\/Newtonsoft.Json.dll"
     },
     {
+      "hash": "sha256-DFD3JLQquEVGVNbCl5GSTN1SgI8BYY1hrpxe3V\/YkyA=",
+      "url": "_framework\/Radzen.Blazor.dll"
+    },
+    {
       "hash": "sha256-3ET+mpR7F058YRj9YaLHOVXBqOW6iUxtIpeiKPYw4PA=",
       "url": "_framework\/System.IO.Pipelines.dll"
+    },
+    {
+      "hash": "sha256-+dlU8yi5zWnF9GeqOTl26t\/y5vllHc9O3mEwXdQjP7M=",
+      "url": "_framework\/System.Linq.Dynamic.Core.dll"
     },
     {
       "hash": "sha256-J3xEnfK9Stuxsk3ysfAkwm7tlSZzs8rytHhodu+3aA0=",
@@ -789,11 +905,11 @@
       "url": "_framework\/dotnet.5.0.11.js"
     },
     {
-      "hash": "sha256-KVCHKSnzOROW5WFExzuz46CF6JpPzvmVTQh9+x1soc0=",
+      "hash": "sha256-nnFHSRcvQJYcEPp5wnR+NmJMx3Q4Fg1ayvOeuNlWPGk=",
       "url": "_framework\/ca3.dll"
     },
     {
-      "hash": "sha256-eGOm5dnMOOU8ljJKutEV1jvhZEYnrD0PLfJYlXKK2GY=",
+      "hash": "sha256-XDXTb4mHIE1LCCmtI9QCUxqqg7ek0HBTEhXIPQXeAAE=",
       "url": "_framework\/ca3.pdb"
     },
     {
@@ -893,8 +1009,16 @@
       "url": "_framework\/Newtonsoft.Json.dll.gz"
     },
     {
+      "hash": "sha256-xVT+jH3Xds+CP\/rYiIyg\/0BRv+Iubz4PEov0c4TJyRY=",
+      "url": "_framework\/Radzen.Blazor.dll.gz"
+    },
+    {
       "hash": "sha256-bKUyqPBN97RAML0EFDOqEqLzHp6KbO5DKcF0CX\/cmSU=",
       "url": "_framework\/System.IO.Pipelines.dll.gz"
+    },
+    {
+      "hash": "sha256-I97HKP\/y4UukaSD2mSQLIOXX0RG\/J1jh3GwwpVb0z4Q=",
+      "url": "_framework\/System.Linq.Dynamic.Core.dll.gz"
     },
     {
       "hash": "sha256-gVPYsfTDUVcUxmbNDqCyzSVNd\/UCHwptk6ynr\/Gyq5A=",
@@ -1661,5 +1785,5 @@
       "url": "ca3.bundle.scp.css"
     }
   ],
-  "version": "3Ooihdnz"
+  "version": "Tt4DSMNL"
 };

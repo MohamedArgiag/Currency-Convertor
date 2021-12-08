@@ -3,19 +3,52 @@
 
 <h3>Search for Company</h3>
 
-<div class="col col-sm" style="border-color:black; border-radius:10px">
-    <label>Currency Conversion</label>
+<div class="" style="border-color:black; border-radius:10px">
     <input @bind-value="@CurrencySearch" />
     <button type="button" class="btn btn-primary" @onclick="TheButtonClicked"> Search</button>
 </div>
 
 
+<div class="card-deck">
+    @try
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Currency</th>
+                    <th>amount</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in dictObj)
+                {
+                    Console.WriteLine("{0}: {1}", item.Key, item.Value);
+                    <tr>
+                        <td>@item.Key</td>
+                        <td>@item.Value</td>
+                    </tr>
+
+                }
+
+                </tbody>
+        </table>
+       
+    }
+    catch (Exception)
+    {
+
+    }
+
+</div>
 
 
 
 @code {
 
     string CurrencySearch = "";
+    JObject jsonObj = new JObject();
+    Dictionary<string, double> dictObj = new Dictionary<string, double>();
 
     private async void TheButtonClicked()
     {
@@ -31,15 +64,17 @@
 
 
 
-            Dictionary<string, double> dictObj = jsonObj[CurrencySearch].ToObject<Dictionary<string, double>>();
 
-            //Console.WriteLine(dictObj[CurrencySearch]);
+            dictObj = jsonObj[CurrencySearch].ToObject<Dictionary<string, double>>();
+
+            //Console.WriteLine(dictObj);
 
 
-            foreach (var item in jsonObj[CurrencySearch])
-                {
-                    Console.WriteLine(item);
-                }
+            @*foreach (var item in dictObj)
+            {
+                Console.WriteLine(item);
+            }*@
+
 
         }
         catch (Exception)

@@ -98,10 +98,12 @@ using Newtonsoft.Json.Linq;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 16 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
+#line 47 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
        
 
     string CurrencySearch = "";
+    JObject jsonObj = new JObject();
+    Dictionary<string, double> dictObj = new Dictionary<string, double>();
 
     private async void TheButtonClicked()
     {
@@ -117,15 +119,21 @@ using Newtonsoft.Json.Linq;
 
 
 
-            Dictionary<string, double> dictObj = jsonObj[CurrencySearch].ToObject<Dictionary<string, double>>();
 
-            //Console.WriteLine(dictObj[CurrencySearch]);
+            dictObj = jsonObj[CurrencySearch].ToObject<Dictionary<string, double>>();
+
+            //Console.WriteLine(dictObj);
 
 
-            foreach (var item in jsonObj[CurrencySearch])
-                {
-                    Console.WriteLine(item);
-                }
+            
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 76 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
+               
+
 
         }
         catch (Exception)
