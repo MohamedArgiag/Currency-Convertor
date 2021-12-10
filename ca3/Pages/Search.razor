@@ -1,44 +1,21 @@
 ﻿@page "/search"
 @using Newtonsoft.Json.Linq;
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Buttons
 
 <h3>Search for Company</h3>
 
 <div class="" style="border-color:black; border-radius:10px">
     <input @bind-value="@CurrencySearch" />
-    <button type="button" class="btn btn-primary" @onclick="TheButtonClicked"> Search</button>
-</div>
+    <SfButton OnClick="TheButtonClicked" class="btn btn-primary">Search</SfButton>
 
+    <SfGrid DataSource="@ListCurrency" AllowPaging="true">
+        <GridColumns>
+            <GridColumn Field=@nameof(Currencycon.CoinName) HeaderText="Coin"></GridColumn>
+            <GridColumn Field=@nameof(Currencycon.CoinAmount) HeaderText="Amount"></GridColumn>
 
-<div class="card-deck">
-    @try
-    {
-        <table>
-            <thead>
-                <tr>
-                    <th>Currency</th>
-                    <th>amount</th>
-                </tr>
-
-            </thead>
-            <tbody>
-                @foreach (var item in dictObj)
-                {
-                    Console.WriteLine("{0}: {1}", item.Key, item.Value);
-                    <tr>
-                        <td>@item.Key</td>
-                        <td>@item.Value</td>
-                    </tr>
-
-                }
-
-                </tbody>
-        </table>
-       
-    }
-    catch (Exception)
-    {
-
-    }
+        </GridColumns>
+    </SfGrid>
 
 </div>
 
@@ -46,9 +23,30 @@
 
 @code {
 
+
     string CurrencySearch = "";
     JObject jsonObj = new JObject();
-    Dictionary<string, double> dictObj = new Dictionary<string, double>();
+    Dictionary<string, string> DictObj = new Dictionary<string, string>();
+
+    public List<Currencycon> ListCurrency { get; set; }
+
+   @* protected override void OnInitialized()
+    {
+        this.ListCurrency = new List<Currencycon>();
+
+        for (int i = 0; i < 15; i++)
+        {
+            Currencycon CurCoin = new Currencycon();
+
+            CurCoin.CoinName = "test";
+            CurCoin.CoinAmount = "test";
+
+            this.ListCurrency.Add(CurCoin);
+
+        }
+
+    }*@
+
 
     private async void TheButtonClicked()
     {
@@ -59,22 +57,10 @@
             String jsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + ".json");
             JObject jsonObj = JObject.Parse(jsonString);
             jsonObj.Remove("date");
-            //Console.WriteLine(jsonObj[CurrencySearch]);
 
+            DictObj = jsonObj[CurrencySearch].ToObject<Dictionary<string, string>>();
 
-
-
-
-            dictObj = jsonObj[CurrencySearch].ToObject<Dictionary<string, double>>();
-
-            //Console.WriteLine(dictObj);
-
-
-            @*foreach (var item in dictObj)
-            {
-                Console.WriteLine(item);
-            }*@
-
+            Change(DictObj);
 
         }
         catch (Exception)
@@ -82,6 +68,25 @@
 
 
         }
+    }
+
+    public void Change(Dictionary<string, string> dictObj)
+    {
+        Console.WriteLine("changing..");
+        List<Currencycon> tempList = new List<Currencycon>();
+     
+        foreach (var item in dictObj)
+        {
+            Currencycon CurCoin = new Currencycon();
+
+            CurCoin.CoinName = item.Key;
+            CurCoin.CoinAmount = item.Value;
+
+            tempList.Add(CurCoin);
+        }
+
+        this.ListCurrency = tempList;
+        StateHasChanged();
     }
 
 

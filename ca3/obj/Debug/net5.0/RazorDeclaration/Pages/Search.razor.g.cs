@@ -83,8 +83,36 @@ using ca3.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "C:\Users\Mohamed\Documents\ead\ca3\ca3\_Imports.razor"
+using Syncfusion.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Users\Mohamed\Documents\ead\ca3\ca3\_Imports.razor"
+using MatBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
 using Newtonsoft.Json.Linq;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
+using Syncfusion.Blazor.Grids;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
+using Syncfusion.Blazor.Buttons;
 
 #line default
 #line hidden
@@ -98,12 +126,25 @@ using Newtonsoft.Json.Linq;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 47 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
+#line 24 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
        
+
 
     string CurrencySearch = "";
     JObject jsonObj = new JObject();
-    Dictionary<string, double> dictObj = new Dictionary<string, double>();
+    Dictionary<string, string> DictObj = new Dictionary<string, string>();
+
+    public List<Currencycon> ListCurrency { get; set; }
+
+   
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 48 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
+       
+
 
     private async void TheButtonClicked()
     {
@@ -114,26 +155,10 @@ using Newtonsoft.Json.Linq;
             String jsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + ".json");
             JObject jsonObj = JObject.Parse(jsonString);
             jsonObj.Remove("date");
-            //Console.WriteLine(jsonObj[CurrencySearch]);
 
+            DictObj = jsonObj[CurrencySearch].ToObject<Dictionary<string, string>>();
 
-
-
-
-            dictObj = jsonObj[CurrencySearch].ToObject<Dictionary<string, double>>();
-
-            //Console.WriteLine(dictObj);
-
-
-            
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 76 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
-               
-
+            Change(DictObj);
 
         }
         catch (Exception)
@@ -141,6 +166,25 @@ using Newtonsoft.Json.Linq;
 
 
         }
+    }
+
+    public void Change(Dictionary<string, string> dictObj)
+    {
+        Console.WriteLine("changing..");
+        List<Currencycon> tempList = new List<Currencycon>();
+     
+        foreach (var item in dictObj)
+        {
+            Currencycon CurCoin = new Currencycon();
+
+            CurCoin.CoinName = item.Key;
+            CurCoin.CoinAmount = item.Value;
+
+            tempList.Add(CurCoin);
+        }
+
+        this.ListCurrency = tempList;
+        StateHasChanged();
     }
 
 
