@@ -28,6 +28,20 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'x00154556'
+    scannerMode: 'MSBuild'
+    projectKey: 'x00154556_DevOps-CA3'
+    projectName: 'DevOps CA3'
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '500'
+
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
