@@ -2,12 +2,18 @@
 @using Newtonsoft.Json.Linq;
 @using Syncfusion.Blazor.Grids
 @using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DropDowns
 
 <h3>Search for Company</h3>
 
+<SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@AutoVal" DataSource="@coinList">
+    <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
+    <SfButton  OnClick="TheButtonClicked" class="btn btn-primary">Search</SfButton>
+</SfAutoComplete>
+
+
+
 <div class="" style="border-color:black; border-radius:10px">
-    <input @bind-value="@CurrencySearch" />
-    <SfButton OnClick="TheButtonClicked" class="btn btn-primary">Search</SfButton>
 
     <SfGrid DataSource="@ListCurrency" AllowPaging="true">
         <GridColumns>
@@ -22,6 +28,29 @@
 
 
 @code {
+    public string AutoVal;
+    Dictionary<string, string> dictSearch = new Dictionary<string, string>();
+    List<TickName> coinList = new List<TickName>();
+
+
+    protected async override void OnInitialized()
+    {
+        HttpClient clnt = new HttpClient();
+        String searchJsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json");
+        JObject jsonObj = JObject.Parse(searchJsonString);
+
+        dictSearch = jsonObj.ToObject<Dictionary<string, string>>();
+
+        foreach (var item in dictSearch)
+        {
+            TickName CurCoin = new TickName();
+
+            CurCoin.Tikr = item.Key;
+            CurCoin.CurName = item.Value;
+
+            coinList.Add(CurCoin);
+        }
+    }
 
 
     string CurrencySearch = "";
@@ -30,30 +59,20 @@
 
     public List<Currencycon> ListCurrency { get; set; }
 
-   @* protected override void OnInitialized()
-    {
-        this.ListCurrency = new List<Currencycon>();
-
-        for (int i = 0; i < 15; i++)
-        {
-            Currencycon CurCoin = new Currencycon();
-
-            CurCoin.CoinName = "test";
-            CurCoin.CoinAmount = "test";
-
-            this.ListCurrency.Add(CurCoin);
-
-        }
-
-    }*@
-
 
     private async void TheButtonClicked()
     {
+        foreach (var item in dictSearch)
+        {
+            if (item.Value == AutoVal)
+            {
+                CurrencySearch = item.Key;
+            }
+        }
+
         try
         {
             HttpClient clnt = new HttpClient();
-
             String jsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + ".json");
             JObject jsonObj = JObject.Parse(jsonString);
             jsonObj.Remove("date");
@@ -72,9 +91,7 @@
 
     public void Change(Dictionary<string, string> dictObj)
     {
-        Console.WriteLine("changing..");
         List<Currencycon> tempList = new List<Currencycon>();
-     
         foreach (var item in dictObj)
         {
             Currencycon CurCoin = new Currencycon();
@@ -84,10 +101,7 @@
 
             tempList.Add(CurCoin);
         }
-
         this.ListCurrency = tempList;
         StateHasChanged();
     }
-
-
 }

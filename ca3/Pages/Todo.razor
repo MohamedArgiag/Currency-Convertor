@@ -1,12 +1,51 @@
 ﻿@page "/todo"
+@using Syncfusion.Blazor.DropDowns
+@using Newtonsoft.Json.Linq;
+@using Syncfusion.Blazor.Buttons
 
 
-
-
-
+<SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@AutoVal" DataSource="@coinList">
+    <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
+    <SfButton OnClick="ButtonClicked" class="btn btn-primary">Search</SfButton>
+</SfAutoComplete>
 
 
 
 @code {
+    public string AutoVal;
+    public string Ticker;
+    Dictionary<string, string> dictSearch = new Dictionary<string, string>();
+    List<TickName> coinList = new List<TickName>();
 
+
+    protected async override void OnInitialized()
+    {
+        HttpClient clnt = new HttpClient();
+        String searchJsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json");
+        JObject jsonObj = JObject.Parse(searchJsonString);
+
+        dictSearch = jsonObj.ToObject<Dictionary<string, string>>();
+
+        foreach (var item in dictSearch)
+        {
+            TickName CurCoin = new TickName();
+
+            CurCoin.Tikr = item.Key;
+            CurCoin.CurName = item.Value;
+
+            coinList.Add(CurCoin);
+        }
+    }
+
+    private void ButtonClicked()
+    {
+        foreach(var item in dictSearch)
+        {
+            if (item.Value == AutoVal)
+            {
+                Ticker = item.Key;
+            }
+        }
+        Console.WriteLine(Ticker);
+    }
 }

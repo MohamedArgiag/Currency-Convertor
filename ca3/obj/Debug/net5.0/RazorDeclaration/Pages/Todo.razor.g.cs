@@ -103,6 +103,34 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 14 "C:\Users\Mohamed\Documents\ead\ca3\ca3\_Imports.razor"
+using Blazored.Typeahead;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Todo.razor"
+using Syncfusion.Blazor.DropDowns;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Todo.razor"
+using Newtonsoft.Json.Linq;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Todo.razor"
+using Syncfusion.Blazor.Buttons;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/todo")]
     public partial class Todo : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -111,6 +139,49 @@ using MatBlazor;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 14 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Todo.razor"
+       
+    public string AutoVal;
+    public string Ticker;
+    Dictionary<string, string> dictSearch = new Dictionary<string, string>();
+    List<TickName> coinList = new List<TickName>();
+
+
+    protected async override void OnInitialized()
+    {
+        HttpClient clnt = new HttpClient();
+        String searchJsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json");
+        JObject jsonObj = JObject.Parse(searchJsonString);
+
+        dictSearch = jsonObj.ToObject<Dictionary<string, string>>();
+
+        foreach (var item in dictSearch)
+        {
+            TickName CurCoin = new TickName();
+
+            CurCoin.Tikr = item.Key;
+            CurCoin.CurName = item.Value;
+
+            coinList.Add(CurCoin);
+        }
+    }
+
+    private void ButtonClicked()
+    {
+        foreach(var item in dictSearch)
+        {
+            if (item.Value == AutoVal)
+            {
+                Ticker = item.Key;
+            }
+        }
+        Console.WriteLine(Ticker);
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

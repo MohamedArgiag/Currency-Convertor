@@ -16,6 +16,7 @@ namespace ca3
     {
         public static async Task Main(string[] args)
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTQ2NDE0QDMxMzkyZTMzMmUzME1sZVZmWi9EQ096ME9sR3NLQ1lybnY1a3MvZkxkNnhISENEamNGOU9zNFk9");
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 

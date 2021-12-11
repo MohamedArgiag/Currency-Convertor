@@ -2,6 +2,25 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "Blazored.Typeahead/4.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.2",
+          "Microsoft.AspNetCore.Components.Web": "3.1.2"
+        },
+        "compile": {
+          "lib/netstandard2.1/Blazored.Typeahead.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Blazored.Typeahead.dll": {}
+        },
+        "build": {
+          "buildTransitive/Blazored.Typeahead.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Blazored.Typeahead.props": {}
+        }
+      },
       "MatBlazor/2.8.0": {
         "type": "package",
         "dependencies": {
@@ -462,6 +481,25 @@
       }
     },
     "net5.0/browser-wasm": {
+      "Blazored.Typeahead/4.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.2",
+          "Microsoft.AspNetCore.Components.Web": "3.1.2"
+        },
+        "compile": {
+          "lib/netstandard2.1/Blazored.Typeahead.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Blazored.Typeahead.dll": {}
+        },
+        "build": {
+          "buildTransitive/Blazored.Typeahead.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Blazored.Typeahead.props": {}
+        }
+      },
       "MatBlazor/2.8.0": {
         "type": "package",
         "dependencies": {
@@ -923,6 +961,25 @@
     }
   },
   "libraries": {
+    "Blazored.Typeahead/4.6.0": {
+      "sha512": "eYViTbA5DmsaUmPO3tUzDxahido811vU0/mNtGfIkA4SqTxN2VAwRJgCmoVxFiHwVWtPjVcNGIpUI44lTe24bg==",
+      "type": "package",
+      "path": "blazored.typeahead/4.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazored.typeahead.4.6.0.nupkg.sha512",
+        "blazored.typeahead.nuspec",
+        "build/Blazored.Typeahead.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/Blazored.Typeahead.props",
+        "buildTransitive/Blazored.Typeahead.props",
+        "icon.png",
+        "lib/netstandard2.1/Blazored.Typeahead.dll",
+        "staticwebassets/blazored-typeahead.css",
+        "staticwebassets/blazored-typeahead.js"
+      ]
+    },
     "MatBlazor/2.8.0": {
       "sha512": "NAbkrLR6YdEXNtQQreJOAdZEqTBeG6wXiTxs9ItHBCLnoCouX//VELHakDXcMtK27QzmeB8uGRwWIkglvhpKLg==",
       "type": "package",
@@ -2024,6 +2081,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Blazored.Typeahead >= 4.6.0",
       "MatBlazor >= 2.8.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 5.0.11",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 5.0.11",
@@ -2077,6 +2135,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Blazored.Typeahead": {
+            "target": "Package",
+            "version": "[4.6.0, )"
+          },
           "MatBlazor": {
             "target": "Package",
             "version": "[2.8.0, )"

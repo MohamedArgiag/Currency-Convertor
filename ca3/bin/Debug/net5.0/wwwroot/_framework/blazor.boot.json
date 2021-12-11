@@ -7,6 +7,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
+      "Blazored.Typeahead.dll": "sha256-YNakk\/GmzitY7JWE\/2LWemYjE+ufhSnWzOQM36VuU5Q=",
       "MatBlazor.dll": "sha256-w+DEscEPLXa2QwjGoRMEy1XDOSGPM8O3p9QFXlTiea4=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-ktaWu1p6pD2yy7T\/20KVYU7oihmpYm3jrPw4QHb7J+k=",
       "Microsoft.AspNetCore.Components.dll": "sha256-alrtyx++CQU1VO\/6akeZFBPsYgrGGm+Z5ax9\/kaPM3k=",
@@ -203,11 +204,11 @@
       "mscorlib.dll": "sha256-heWnofXFSc\/TfAxrWpjQxeuS+nlIOs9YycfI2QGXGM8=",
       "netstandard.dll": "sha256-mbIVAluJ7cAx0vUQshB\/c1zEIK5JcYwIYxo\/BQ\/meRU=",
       "System.Private.CoreLib.dll": "sha256-FrZbEyy47f3RDuj77R5oHUGxSGEDgRRxykTjImrLqfM=",
-      "ca3.dll": "sha256-202\/yj1aZ7VXsvE319wHgrokXoCodl8M4Ns1doSFlc4="
+      "ca3.dll": "sha256-mye77a05S8AyGpzJv4honqqmkJXY8is9Cni1QYpbxhY="
     },
     "lazyAssembly": null,
     "pdb": {
-      "ca3.pdb": "sha256-vztX3JMFOBqqz3QY1OuO5SmuVDYRn4xMQeigi\/X\/ZGo="
+      "ca3.pdb": "sha256-EE7gcBM1Q9f5Z+DSxwkDoqtBGFpDhOgtwGBdqfH7H6Y="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-5ttRwTa4Rar530elwLdfGDeH9I9NX9MPyDl6zLi9uug=",

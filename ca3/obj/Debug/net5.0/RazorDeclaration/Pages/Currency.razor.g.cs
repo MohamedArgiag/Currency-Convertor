@@ -104,8 +104,29 @@ using MatBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 14 "C:\Users\Mohamed\Documents\ead\ca3\ca3\_Imports.razor"
+using Blazored.Typeahead;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Currency.razor"
 using Newtonsoft.Json.Linq;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Currency.razor"
+using Syncfusion.Blazor.DropDowns;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Currency.razor"
+using Syncfusion.Blazor.Buttons;
 
 #line default
 #line hidden
@@ -119,31 +140,70 @@ using Newtonsoft.Json.Linq;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 29 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Currency.razor"
+#line 31 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Currency.razor"
        
 
-    string CurrencySearch = "";
-    string CurrencySearch2 = "";
+    public string firstVal;
+    public string secondVal;
+    Dictionary<string, string> dictSearch = new Dictionary<string, string>();
+    List<TickName> coinList = new List<TickName>();
+
+
+    protected async override void OnInitialized()
+    {
+        HttpClient clnt = new HttpClient();
+        String searchJsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json");
+        JObject jsonObj = JObject.Parse(searchJsonString);
+
+        dictSearch = jsonObj.ToObject<Dictionary<string, string>>();
+
+        foreach (var item in dictSearch)
+        {
+            TickName CurCoin = new TickName();
+
+            CurCoin.Tikr = item.Key;
+            CurCoin.CurName = item.Value;
+
+            coinList.Add(CurCoin);
+        }
+    }
+
+
+    string CurrencySearch;
+    string CurrencySearch2;
+    double result;
+    Dictionary<string, string> dictObj = new Dictionary<string, string>();
 
     private async void TheButtonClicked()
     {
         try
         {
+            foreach (var item in dictSearch)
+            {
+                if (item.Value == firstVal)
+                {
+                    CurrencySearch = item.Key;
+                }
+                else if (item.Value == secondVal)
+                {
+                    CurrencySearch2 = item.Key;
+                }
+            }
+
+
             HttpClient clnt = new HttpClient();
-            //Currencycon Response = await clnt.GetFromJsonAsync<Currencycon>("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json");
-
-            //string test = Response.ada;
-            //Console.WriteLine(test);
-
-
             String jsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + "/" + CurrencySearch2 + ".json");
             JObject jsonObj = JObject.Parse(jsonString);
             Console.WriteLine(jsonObj);
 
-            Dictionary<string, string> dictObj = jsonObj.ToObject<Dictionary<string, string>>();
+            dictObj = jsonObj.ToObject<Dictionary<string, string>>();
 
-            Console.WriteLine(dictObj[CurrencySearch2]);
+            double r1 = Convert.ToDouble(dictObj[CurrencySearch2]);
 
+            Console.WriteLine(r1);
+
+            result = result * r1;
+            StateHasChanged();
         }
         catch (Exception)
         {
@@ -154,33 +214,7 @@ using Newtonsoft.Json.Linq;
 
 
 
-    /**
 
-        string CurrencySearch = "";
-
-        string CurrencySearch2 = "";
-
-        Currencycon Result = new Currencycon();
-        string strFeedback = "";
-
-        private async void TheButtonClicked()
-        {
-            try
-            {
-                HttpClient clnt = new HttpClient();
-                Result = await clnt.GetFromJsonAsync<Currencycon>("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + ".json");
-                double testCur = Result.eur;
-                Console.WriteLine(Result);
-
-            }
-            catch (Exception ex)
-            {
-                strFeedback = ex.Message;
-                StateHasChanged();
-
-            }
-        }
-       **/
 
 #line default
 #line hidden

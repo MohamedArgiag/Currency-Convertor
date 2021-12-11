@@ -1,55 +1,96 @@
 ﻿@page "/currency"
 @using Newtonsoft.Json.Linq;
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Buttons
 
-<h3>View Zip Info</h3>
-<!--
-   <div class="col col-sm" style="border-color:black; border-radius:10px">
-       <input type="number" />
-       <select>
-           <option value="currency">Currency</option>
-       </select>
-   </div>
-   <div class="col col-sm" style="border-color:black; border-radius:10px">
-       <input type="number" />
-       <select>
-           <option value="currency">Currency</option>
-       </select>
-       <button class="btn-outline-primary" @onclick="TheButtonClicked"></button>
-   </div>
--->
+
+<h3>Currency Conversion</h3>
+
+
+<SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@firstVal" DataSource="@coinList">
+    <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
+</SfAutoComplete>
+
+<SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@secondVal" DataSource="@coinList">
+    <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
+</SfAutoComplete>
+
 
 <div class="col col-sm" style="border-color:black; border-radius:10px">
-    <label>Currency Conversion</label>
-    <input @bind-value="@CurrencySearch" />
-    <label>Currency</label>
-    <input @bind-value="@CurrencySearch2" />
-    <button class="btn-outline-primary" @onclick="TheButtonClicked"></button>
+    <label>input amount</label>
+    <input @bind-value="@result" />
+    <SfButton OnClick="TheButtonClicked" class="btn btn-primary">Search</SfButton>
 </div>
+
+<div>
+    <h2>@result</h2>
+</div>
+
+
 
 @code {
 
-    string CurrencySearch = "";
-    string CurrencySearch2 = "";
+    public string firstVal;
+    public string secondVal;
+    Dictionary<string, string> dictSearch = new Dictionary<string, string>();
+    List<TickName> coinList = new List<TickName>();
+
+
+    protected async override void OnInitialized()
+    {
+        HttpClient clnt = new HttpClient();
+        String searchJsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json");
+        JObject jsonObj = JObject.Parse(searchJsonString);
+
+        dictSearch = jsonObj.ToObject<Dictionary<string, string>>();
+
+        foreach (var item in dictSearch)
+        {
+            TickName CurCoin = new TickName();
+
+            CurCoin.Tikr = item.Key;
+            CurCoin.CurName = item.Value;
+
+            coinList.Add(CurCoin);
+        }
+    }
+
+
+    string CurrencySearch;
+    string CurrencySearch2;
+    double result;
+    Dictionary<string, string> dictObj = new Dictionary<string, string>();
 
     private async void TheButtonClicked()
     {
         try
         {
+            foreach (var item in dictSearch)
+            {
+                if (item.Value == firstVal)
+                {
+                    CurrencySearch = item.Key;
+                }
+                else if (item.Value == secondVal)
+                {
+                    CurrencySearch2 = item.Key;
+                }
+            }
+
+
             HttpClient clnt = new HttpClient();
-            //Currencycon Response = await clnt.GetFromJsonAsync<Currencycon>("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json");
-
-            //string test = Response.ada;
-            //Console.WriteLine(test);
-
-
             String jsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + "/" + CurrencySearch2 + ".json");
             JObject jsonObj = JObject.Parse(jsonString);
             Console.WriteLine(jsonObj);
 
-            Dictionary<string, string> dictObj = jsonObj.ToObject<Dictionary<string, string>>();
+            dictObj = jsonObj.ToObject<Dictionary<string, string>>();
 
-            Console.WriteLine(dictObj[CurrencySearch2]);
+            double r1 = Convert.ToDouble(dictObj[CurrencySearch2]);
 
+            Console.WriteLine(r1);
+
+            result = result * r1;
+            StateHasChanged();
         }
         catch (Exception)
         {
@@ -60,31 +101,5 @@
 
 
 
-    /**
 
-        string CurrencySearch = "";
-
-        string CurrencySearch2 = "";
-
-        Currencycon Result = new Currencycon();
-        string strFeedback = "";
-
-        private async void TheButtonClicked()
-        {
-            try
-            {
-                HttpClient clnt = new HttpClient();
-                Result = await clnt.GetFromJsonAsync<Currencycon>("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + ".json");
-                double testCur = Result.eur;
-                Console.WriteLine(Result);
-
-            }
-            catch (Exception ex)
-            {
-                strFeedback = ex.Message;
-                StateHasChanged();
-
-            }
-        }
-       **/
 }

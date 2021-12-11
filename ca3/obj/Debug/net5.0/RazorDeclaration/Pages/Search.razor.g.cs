@@ -97,6 +97,13 @@ using MatBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 14 "C:\Users\Mohamed\Documents\ead\ca3\ca3\_Imports.razor"
+using Blazored.Typeahead;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
 using Newtonsoft.Json.Linq;
 
@@ -117,6 +124,13 @@ using Syncfusion.Blazor.Buttons;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
+using Syncfusion.Blazor.DropDowns;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/search")]
     public partial class Search : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -126,8 +140,31 @@ using Syncfusion.Blazor.Buttons;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 24 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
+#line 30 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
        
+    public string AutoVal;
+    Dictionary<string, string> dictSearch = new Dictionary<string, string>();
+    List<TickName> coinList = new List<TickName>();
+
+
+    protected async override void OnInitialized()
+    {
+        HttpClient clnt = new HttpClient();
+        String searchJsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json");
+        JObject jsonObj = JObject.Parse(searchJsonString);
+
+        dictSearch = jsonObj.ToObject<Dictionary<string, string>>();
+
+        foreach (var item in dictSearch)
+        {
+            TickName CurCoin = new TickName();
+
+            CurCoin.Tikr = item.Key;
+            CurCoin.CurName = item.Value;
+
+            coinList.Add(CurCoin);
+        }
+    }
 
 
     string CurrencySearch = "";
@@ -136,22 +173,20 @@ using Syncfusion.Blazor.Buttons;
 
     public List<Currencycon> ListCurrency { get; set; }
 
-   
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 48 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
-       
-
 
     private async void TheButtonClicked()
     {
+        foreach (var item in dictSearch)
+        {
+            if (item.Value == AutoVal)
+            {
+                CurrencySearch = item.Key;
+            }
+        }
+
         try
         {
             HttpClient clnt = new HttpClient();
-
             String jsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + ".json");
             JObject jsonObj = JObject.Parse(jsonString);
             jsonObj.Remove("date");
@@ -170,9 +205,7 @@ using Syncfusion.Blazor.Buttons;
 
     public void Change(Dictionary<string, string> dictObj)
     {
-        Console.WriteLine("changing..");
         List<Currencycon> tempList = new List<Currencycon>();
-     
         foreach (var item in dictObj)
         {
             Currencycon CurCoin = new Currencycon();
@@ -182,12 +215,9 @@ using Syncfusion.Blazor.Buttons;
 
             tempList.Add(CurCoin);
         }
-
         this.ListCurrency = tempList;
         StateHasChanged();
     }
-
-
 
 #line default
 #line hidden
