@@ -96,20 +96,6 @@ using Syncfusion.Blazor.Grids;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 13 "C:\Users\Mohamed\Documents\ead\ca3\ca3\_Imports.razor"
-using MatBlazor;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 14 "C:\Users\Mohamed\Documents\ead\ca3\ca3\_Imports.razor"
-using Blazored.Typeahead;
-
-#line default
-#line hidden
-#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -118,7 +104,7 @@ using Blazored.Typeahead;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Shared\NavMenu.razor"
+#line 23 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

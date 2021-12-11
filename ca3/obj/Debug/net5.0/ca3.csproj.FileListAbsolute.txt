@@ -406,9 +406,6 @@ C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ca3.csproj.CoreCompileIn
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ca3.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ca3.RazorComponent.input.cache
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
-C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\RazorDeclaration\Pages\Counter.razor.g.cs
-C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\RazorDeclaration\Pages\FetchData.razor.g.cs
-C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\RazorDeclaration\_Imports.razor.g.cs
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\RazorDeclaration\Shared\MainLayout.razor.g.cs
@@ -419,9 +416,6 @@ C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ca3.TagHelpers.input.cac
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ca3.TagHelpers.output.cache
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ca3.RazorCoreGenerate.cache
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\Razor\App.razor.g.cs
-C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\Razor\Pages\Counter.razor.g.cs
-C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\Razor\Pages\FetchData.razor.g.cs
-C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\Razor\Shared\SurveyPrompt.razor.g.cs
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\Razor\_Imports.razor.g.cs
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\Razor\Shared\MainLayout.razor.g.cs
@@ -633,8 +627,6 @@ C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ref\ca3.dll
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ca3.pdb
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\serviceworkers\wwwroot\service-worker.js
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\service-worker-assets.js
-C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\RazorDeclaration\Pages\Todo.razor.g.cs
-C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\Razor\Pages\Todo.razor.g.cs
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\RazorDeclaration\Pages\Currency.razor.g.cs
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\Razor\Pages\Currency.razor.g.cs
 C:\Users\Mohamed\Documents\ead\ca3\ca3\bin\Debug\net5.0\wwwroot\_framework\Newtonsoft.Json.dll.gz
@@ -660,9 +652,3 @@ C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\build-gz\Mkwv6eRl.gz
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\build-gz\8o9gQMgI.gz
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\build-gz\NdzjItWp.gz
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\build-gz\fKGzO2dG.gz
-C:\Users\Mohamed\Documents\ead\ca3\ca3\bin\Debug\net5.0\wwwroot\_framework\MatBlazor.dll.gz
-C:\Users\Mohamed\Documents\ead\ca3\ca3\bin\Debug\net5.0\wwwroot\_framework\MatBlazor.dll
-C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\build-gz\cNhHxSk0.gz
-C:\Users\Mohamed\Documents\ead\ca3\ca3\bin\Debug\net5.0\wwwroot\_framework\Blazored.Typeahead.dll.gz
-C:\Users\Mohamed\Documents\ead\ca3\ca3\bin\Debug\net5.0\wwwroot\_framework\Blazored.Typeahead.dll
-C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\build-gz\iWaL1zJy.gz

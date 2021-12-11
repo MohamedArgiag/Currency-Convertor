@@ -93,20 +93,6 @@ using Syncfusion.Blazor.Grids;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 13 "C:\Users\Mohamed\Documents\ead\ca3\ca3\_Imports.razor"
-using MatBlazor;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 14 "C:\Users\Mohamed\Documents\ead\ca3\ca3\_Imports.razor"
-using Blazored.Typeahead;
-
-#line default
-#line hidden
-#nullable disable
     public partial class MainLayout : LayoutComponentBase
     {
         #pragma warning disable 1998

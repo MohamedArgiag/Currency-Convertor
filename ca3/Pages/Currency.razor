@@ -1,31 +1,58 @@
-﻿@page "/currency"
+﻿@page "/"
 @using Newtonsoft.Json.Linq;
 @using Syncfusion.Blazor.DropDowns
 @using Syncfusion.Blazor.Buttons
 
+<style>
+    .e-custom {
+        border-radius: 8px;
+        height: 30px;
+        width: 250px;
+    }
+        .e-custom:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
 
-<h3>Currency Conversion</h3>
+        .e-custom, .e-custom:hover, .e-custom:focus, .e-custom:active {
+            background-color: #008CBA;
+            color: #fff;
+        }
+</style>
+
+<h3 class="text-center mt-5">Currency Conversion</h3>
+<p class="text-center">Please type in the curriences and the amount you wish to be converted.</p>
+
+<div class="container">
+    <div class="mb-5 w-25">
+        <SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@firstVal" DataSource="@coinList">
+            <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
+        </SfAutoComplete>
+    </div>
 
 
-<SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@firstVal" DataSource="@coinList">
-    <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
-</SfAutoComplete>
+    <div class="w-25">
+        <SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@secondVal" DataSource="@coinList">
+            <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
+        </SfAutoComplete>
+    </div>
 
-<SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@secondVal" DataSource="@coinList">
-    <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
-</SfAutoComplete>
+    <div class="mt-5">
+        <div>
+            <label>input amount</label>
+        </div>
+        <input @bind-value="@tempResult" />
+    </div>
+
+    <div class="mt-5">
+        <SfButton CssClass="e-custom" OnClick="TheButtonClicked">Enter</SfButton>
+    </div>
 
 
-<div class="col col-sm" style="border-color:black; border-radius:10px">
-    <label>input amount</label>
-    <input @bind-value="@result" />
-    <SfButton OnClick="TheButtonClicked" class="btn btn-primary">Search</SfButton>
+
+    <div class="text-center mt-5">
+        <h2>@result</h2>
+    </div>
 </div>
-
-<div>
-    <h2>@result</h2>
-</div>
-
 
 
 @code {
@@ -34,6 +61,12 @@
     public string secondVal;
     Dictionary<string, string> dictSearch = new Dictionary<string, string>();
     List<TickName> coinList = new List<TickName>();
+
+    string CurrencySearch;
+    string CurrencySearch2;
+    double result;
+    double tempResult;
+    Dictionary<string, string> dictObj = new Dictionary<string, string>();
 
 
     protected async override void OnInitialized()
@@ -56,11 +89,6 @@
     }
 
 
-    string CurrencySearch;
-    string CurrencySearch2;
-    double result;
-    Dictionary<string, string> dictObj = new Dictionary<string, string>();
-
     private async void TheButtonClicked()
     {
         try
@@ -81,15 +109,11 @@
             HttpClient clnt = new HttpClient();
             String jsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + "/" + CurrencySearch2 + ".json");
             JObject jsonObj = JObject.Parse(jsonString);
-            Console.WriteLine(jsonObj);
-
             dictObj = jsonObj.ToObject<Dictionary<string, string>>();
 
             double r1 = Convert.ToDouble(dictObj[CurrencySearch2]);
 
-            Console.WriteLine(r1);
-
-            result = result * r1;
+            result = Math.Round(tempResult * r1,4);
             StateHasChanged();
         }
         catch (Exception)
@@ -98,8 +122,4 @@
 
         }
     }
-
-
-
-
 }

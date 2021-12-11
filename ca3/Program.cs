@@ -8,7 +8,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Syncfusion.Blazor;
-using MatBlazor;
 
 namespace ca3
 {
@@ -23,7 +22,6 @@ namespace ca3
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             builder.Services.AddSyncfusionBlazor();
-            builder.Services.AddMatBlazor();
 
             await builder.Build().RunAsync();
         }

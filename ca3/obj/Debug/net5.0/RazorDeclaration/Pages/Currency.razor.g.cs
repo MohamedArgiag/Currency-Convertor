@@ -97,20 +97,6 @@ using Syncfusion.Blazor.Grids;
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\Mohamed\Documents\ead\ca3\ca3\_Imports.razor"
-using MatBlazor;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 14 "C:\Users\Mohamed\Documents\ead\ca3\ca3\_Imports.razor"
-using Blazored.Typeahead;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 2 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Currency.razor"
 using Newtonsoft.Json.Linq;
 
@@ -131,7 +117,7 @@ using Syncfusion.Blazor.Buttons;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/currency")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Currency : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -140,13 +126,19 @@ using Syncfusion.Blazor.Buttons;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 31 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Currency.razor"
+#line 58 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Currency.razor"
        
 
     public string firstVal;
     public string secondVal;
     Dictionary<string, string> dictSearch = new Dictionary<string, string>();
     List<TickName> coinList = new List<TickName>();
+
+    string CurrencySearch;
+    string CurrencySearch2;
+    double result;
+    double tempResult;
+    Dictionary<string, string> dictObj = new Dictionary<string, string>();
 
 
     protected async override void OnInitialized()
@@ -169,11 +161,6 @@ using Syncfusion.Blazor.Buttons;
     }
 
 
-    string CurrencySearch;
-    string CurrencySearch2;
-    double result;
-    Dictionary<string, string> dictObj = new Dictionary<string, string>();
-
     private async void TheButtonClicked()
     {
         try
@@ -194,15 +181,11 @@ using Syncfusion.Blazor.Buttons;
             HttpClient clnt = new HttpClient();
             String jsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + CurrencySearch + "/" + CurrencySearch2 + ".json");
             JObject jsonObj = JObject.Parse(jsonString);
-            Console.WriteLine(jsonObj);
-
             dictObj = jsonObj.ToObject<Dictionary<string, string>>();
 
             double r1 = Convert.ToDouble(dictObj[CurrencySearch2]);
 
-            Console.WriteLine(r1);
-
-            result = result * r1;
+            result = Math.Round(tempResult * r1,4);
             StateHasChanged();
         }
         catch (Exception)
@@ -211,10 +194,6 @@ using Syncfusion.Blazor.Buttons;
 
         }
     }
-
-
-
-
 
 #line default
 #line hidden

@@ -657,32 +657,8 @@
       "url": "_content\/Radzen.Blazor\/Radzen.Blazor.js"
     },
     {
-      "hash": "sha256-+N+QcVNMWlEcC+yc1rdo2p9rHVH\/TzsrDvVe26dvSRQ=",
-      "url": "_content\/MatBlazor\/dist\/matBlazor.css"
-    },
-    {
-      "hash": "sha256-lYzdPNizw2cqpBimOeblTsDVHRYqtF2f6aA8ZMSgyWk=",
-      "url": "_content\/MatBlazor\/dist\/matBlazor.js"
-    },
-    {
-      "hash": "sha256-J3yBtIuvF38lccTVcUS7ScUgk93ATgKN6kbpbFM9JA0=",
-      "url": "_content\/Blazored.Typeahead\/blazored-typeahead.css"
-    },
-    {
-      "hash": "sha256-ClIzMmBI5Nozgt7KRG3K3u45r2pMtn\/X9Vx2UeudOPU=",
-      "url": "_content\/Blazored.Typeahead\/blazored-typeahead.js"
-    },
-    {
-      "hash": "sha256-Db8kKjYEC6DgI9yK0Dma+w9O2R+Jt6LyC4RXC9nrwHg=",
+      "hash": "sha256-nlPop2trEmp0on6GvSU7c8P7kok\/hzk6isQnNijWXv8=",
       "url": "_framework\/blazor.boot.json"
-    },
-    {
-      "hash": "sha256-YNakk\/GmzitY7JWE\/2LWemYjE+ufhSnWzOQM36VuU5Q=",
-      "url": "_framework\/Blazored.Typeahead.dll"
-    },
-    {
-      "hash": "sha256-w+DEscEPLXa2QwjGoRMEy1XDOSGPM8O3p9QFXlTiea4=",
-      "url": "_framework\/MatBlazor.dll"
     },
     {
       "hash": "sha256-ktaWu1p6pD2yy7T\/20KVYU7oihmpYm3jrPw4QHb7J+k=",
@@ -1493,24 +1469,16 @@
       "url": "_framework\/dotnet.5.0.11.js"
     },
     {
-      "hash": "sha256-mye77a05S8AyGpzJv4honqqmkJXY8is9Cni1QYpbxhY=",
+      "hash": "sha256-9VbFdDfYCKxt5hMjZIWrEKw\/tQPVhuyXOnUe+w5M6h4=",
       "url": "_framework\/ca3.dll"
     },
     {
-      "hash": "sha256-EE7gcBM1Q9f5Z+DSxwkDoqtBGFpDhOgtwGBdqfH7H6Y=",
+      "hash": "sha256-eMztg8EdqFVO1cWk\/uZQD4FswpGrPsCiIFTZFZzEzkA=",
       "url": "_framework\/ca3.pdb"
     },
     {
       "hash": "sha256-dl8FVRvWOJfOtzIC\/x66QNnBNsT9cAOMrn22GB8fJ8U=",
       "url": "_framework\/blazor.webassembly.js"
-    },
-    {
-      "hash": "sha256-ZNxVJppLQBusrieXUdIzsYrAnAJDbMBHYGsYBWkWPlM=",
-      "url": "_framework\/Blazored.Typeahead.dll.gz"
-    },
-    {
-      "hash": "sha256-fCLeAmhsjpoqG0jsER48aJ1BGzlAv9\/OfpHBqV7vOdc=",
-      "url": "_framework\/MatBlazor.dll.gz"
     },
     {
       "hash": "sha256-fb1ni+zQTVhzMWysGRsrVcwdS92cyj7CKxXviWGM004=",
@@ -2377,7 +2345,7 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-ajPWnhmJmeYzPAzK5HZIV2eU0M7lLIdJWWHoiqOZ\/DY=",
+      "hash": "sha256-Apo0eaYayq7PBRCh7VjS7SC09eAyEin98mBoJvGWoZ8=",
       "url": "index.html"
     },
     {
@@ -2397,5 +2365,5 @@
       "url": "ca3.bundle.scp.css"
     }
   ],
-  "version": "XWkLYIOF"
+  "version": "pE30EHPd"
 };
