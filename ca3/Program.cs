@@ -13,6 +13,7 @@ namespace ca3
 {
     public class Program
     {
+        protected Program() { }
         public static async Task Main(string[] args)
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTQ2NDE0QDMxMzkyZTMzMmUzME1sZVZmWi9EQ096ME9sR3NLQ1lybnY1a3MvZkxkNnhISENEamNGOU9zNFk9");

@@ -126,7 +126,7 @@ using Syncfusion.Blazor.DropDowns;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 30 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
+#line 36 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\Search.razor"
        
     public string AutoVal;
     Dictionary<string, string> dictSearch = new Dictionary<string, string>();

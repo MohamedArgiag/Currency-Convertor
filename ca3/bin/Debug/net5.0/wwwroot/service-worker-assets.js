@@ -657,7 +657,7 @@
       "url": "_content\/Radzen.Blazor\/Radzen.Blazor.js"
     },
     {
-      "hash": "sha256-nlPop2trEmp0on6GvSU7c8P7kok\/hzk6isQnNijWXv8=",
+      "hash": "sha256-vmQdJ+rFgLq15alpKmjnnw3RpSROp04DWWdG0wRxfas=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -1469,11 +1469,11 @@
       "url": "_framework\/dotnet.5.0.11.js"
     },
     {
-      "hash": "sha256-9VbFdDfYCKxt5hMjZIWrEKw\/tQPVhuyXOnUe+w5M6h4=",
+      "hash": "sha256-biQRXTmUdWEgnsHqBZ43OjYi3o3Kkc9qX2n1uXvfvyQ=",
       "url": "_framework\/ca3.dll"
     },
     {
-      "hash": "sha256-eMztg8EdqFVO1cWk\/uZQD4FswpGrPsCiIFTZFZzEzkA=",
+      "hash": "sha256-gw5u2BGO6gRf9+jHdGckiHymDcHFqKEcmw5Kz1v6vZA=",
       "url": "_framework\/ca3.pdb"
     },
     {
@@ -2337,6 +2337,10 @@
       "url": "css\/open-iconic\/README.md"
     },
     {
+      "hash": "sha256-Zs+1htz33uN32APFoOdpw9wqyG+jEgyZd+Jmy\/YFEIw=",
+      "url": "css\/StyleSheet.css"
+    },
+    {
       "hash": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=",
       "url": "favicon.ico"
     },
@@ -2365,5 +2369,5 @@
       "url": "ca3.bundle.scp.css"
     }
   ],
-  "version": "pE30EHPd"
+  "version": "0yjbgIor"
 };

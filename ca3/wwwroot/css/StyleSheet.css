@@ -1,0 +1,16 @@
+﻿
+
+.e-custom {
+    border-radius: 8px;
+    height: 30px;
+    width: 250px;
+}
+
+    .e-custom:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    .e-custom, .e-custom:hover, .e-custom:focus, .e-custom:active {
+        background-color: #008CBA;
+        color: #fff;
+    }

@@ -4,25 +4,31 @@
 @using Syncfusion.Blazor.Buttons
 @using Syncfusion.Blazor.DropDowns
 
-<h3>Search for Company</h3>
+<link href="./css/StyleSheet.css" rel="stylesheet" />
 
-<SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@AutoVal" DataSource="@coinList">
-    <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
-    <SfButton  OnClick="TheButtonClicked" class="btn btn-primary">Search</SfButton>
-</SfAutoComplete>
+<h3 class="text-center mt-5">Search for Company</h3>
+
+<div class="container">
+    <SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@AutoVal" DataSource="@coinList">
+        <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
+        <div class=" text-center mt-5">
+            <SfButton CssClass="e-custom" OnClick="TheButtonClicked" class="btn btn-primary">Search</SfButton>
+        </div>
+    </SfAutoComplete>
 
 
 
-<div class="" style="border-color:black; border-radius:10px">
+    <div class="mt-5" style="border-color:black; border-radius:10px">
 
-    <SfGrid DataSource="@ListCurrency" AllowPaging="true">
-        <GridColumns>
-            <GridColumn Field=@nameof(Currencycon.CoinName) HeaderText="Coin"></GridColumn>
-            <GridColumn Field=@nameof(Currencycon.CoinAmount) HeaderText="Amount"></GridColumn>
+        <SfGrid DataSource="@ListCurrency" AllowPaging="true">
+            <GridColumns>
+                <GridColumn Field=@nameof(Currencycon.CoinName) HeaderText="Currency(Ticker)"></GridColumn>
+                <GridColumn Field=@nameof(Currencycon.CoinAmount) HeaderText="Value"></GridColumn>
 
-        </GridColumns>
-    </SfGrid>
+            </GridColumns>
+        </SfGrid>
 
+    </div>
 </div>
 
 

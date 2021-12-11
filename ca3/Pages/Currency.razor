@@ -3,21 +3,7 @@
 @using Syncfusion.Blazor.DropDowns
 @using Syncfusion.Blazor.Buttons
 
-<style>
-    .e-custom {
-        border-radius: 8px;
-        height: 30px;
-        width: 250px;
-    }
-        .e-custom:hover {
-            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-        }
-
-        .e-custom, .e-custom:hover, .e-custom:focus, .e-custom:active {
-            background-color: #008CBA;
-            color: #fff;
-        }
-</style>
+<link href="./css/StyleSheet.css" rel="stylesheet" />
 
 <h3 class="text-center mt-5">Currency Conversion</h3>
 <p class="text-center">Please type in the curriences and the amount you wish to be converted.</p>
@@ -38,7 +24,7 @@
 
     <div class="mt-5">
         <div>
-            <label>input amount</label>
+            <label>Input amount</label>
         </div>
         <input @bind-value="@tempResult" />
     </div>
