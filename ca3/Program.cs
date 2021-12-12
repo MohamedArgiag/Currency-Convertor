@@ -8,9 +8,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Syncfusion.Blazor;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ca3
 {
+    [ExcludeFromCodeCoverage]
     public class Program
     {
         protected Program() { }

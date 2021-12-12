@@ -1,0 +1,13 @@
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\ca3.csproj.AssemblyReference.cache
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\ca3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\ca3.AssemblyInfoInputs.cache
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\ca3.AssemblyInfo.cs
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\ca3.RazorComponent.input.cache
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\RazorDeclaration\App.razor.g.cs
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\RazorDeclaration\Pages\Currency.razor.g.cs
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\RazorDeclaration\Pages\Search.razor.g.cs
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\RazorDeclaration\_Imports.razor.g.cs
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\RazorDeclaration\Shared\MainLayout.razor.g.cs
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\RazorDeclaration\Shared\NavMenu.razor.g.cs
+C:\Users\Mohamed\Documents\ead\ca3\.vs\ca3\v16\lut\0\i\ca3\net5.0\ca3.RazorComponent.output.cache
