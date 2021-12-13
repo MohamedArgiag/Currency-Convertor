@@ -104,8 +104,9 @@ using Syncfusion.Blazor.Grids;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 23 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Shared\NavMenu.razor"
+#line 28 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Shared\NavMenu.razor"
        
+
     private bool collapseNavMenu = true;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;

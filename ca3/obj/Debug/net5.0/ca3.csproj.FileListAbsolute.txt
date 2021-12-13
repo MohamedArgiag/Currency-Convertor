@@ -646,9 +646,11 @@ C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\scopedcss\Shared\NavMenu
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\scopedcss\bundle\ca3.styles.css
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\scopedcss\projectbundle\ca3.bundle.scp.css
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ca3.RazorTargetAssemblyInfo.cache
-C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ca3.csproj.CopyComplete
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ca3.dll
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ref\ca3.dll
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ca3.pdb
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\serviceworkers\wwwroot\service-worker.js
 C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\service-worker-assets.js
+C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\ca3.csproj.AssemblyReference.cache
+C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\RazorDeclaration\Pages\CurrencyChart.razor.g.cs
+C:\Users\Mohamed\Documents\ead\ca3\ca3\obj\Debug\net5.0\Razor\Pages\CurrencyChart.razor.g.cs

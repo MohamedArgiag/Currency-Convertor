@@ -1,0 +1,152 @@
+﻿@page "/CurrencyChart"
+@using Syncfusion.Blazor.Charts
+@using Newtonsoft.Json.Linq;
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DropDowns
+@using System.Collections.Generic
+@inject NavigationManager NavigationManager
+
+
+<h3>CurrencyChart</h3>
+
+<div class="container">
+    <div class="mb-5 w-25">
+        <SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@firstVal" DataSource="@coinList">
+            <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
+        </SfAutoComplete>
+    </div>
+
+
+    <div class="w-25">
+        <SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@secondVal" DataSource="@coinList">
+            <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
+        </SfAutoComplete>
+    </div>
+
+    <div class="mt-5">
+        <SfButton CssClass="e-custom" OnClick="TheButtonClicked">Enter</SfButton>
+    </div>
+
+    <div class="control-section">
+        <SfChart Title="Currency rate for the last week">
+            <ChartArea><ChartAreaBorder Width="0"></ChartAreaBorder></ChartArea>
+            <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.DateTime" LabelFormat="yyyy-MM-dd" IntervalType="IntervalType.Days" EdgeLabelPlacement="EdgeLabelPlacement.Shift">
+                <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
+            </ChartPrimaryXAxis>
+            <ChartPrimaryYAxis LabelFormat="{value}" RangePadding="ChartRangePadding.None" Minimum="0" Maximum="1" Interval=".20">
+                <ChartAxisLineStyle Width="0"></ChartAxisLineStyle>
+                <ChartAxisMajorTickLines Width="0"></ChartAxisMajorTickLines>
+            </ChartPrimaryYAxis>
+            <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
+            <ChartSeriesCollection>
+                <ChartSeries DataSource="@Last7days" Name="England" XName="Period" Width="2"
+                             Opacity="1" YName="Currency" Type="ChartSeriesType.Line">
+                    <ChartMarker Visible="true" Width="10" Height="10">
+                    </ChartMarker>
+                </ChartSeries>
+
+            </ChartSeriesCollection>
+        </SfChart>
+
+    </div>
+</div>
+
+
+
+
+@code {
+
+    public string firstVal;
+    public string secondVal;
+    string CurrencySearch;
+    string CurrencySearch2;
+    string daydate;
+    DateTime[] last7Days;
+    Dictionary<string, string> dictSearch = new Dictionary<string, string>();
+    List<TickName> coinList = new List<TickName>();
+    List<string> listofDates = new List<string>();
+    List<CurrencyLineChart> Last7days = new List<CurrencyLineChart>();
+
+
+    protected async override void OnInitialized()
+    {
+        HttpClient clnt = new HttpClient();
+        String searchJsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json");
+        JObject jsonObj = JObject.Parse(searchJsonString);
+
+        dictSearch = jsonObj.ToObject<Dictionary<string, string>>();
+
+        foreach (var item in dictSearch)
+        {
+            TickName CurCoin = new TickName();
+
+            CurCoin.Tikr = item.Key;
+            CurCoin.CurName = item.Value;
+
+            coinList.Add(CurCoin);
+        }
+
+        DateTime[] last7Days = Enumerable.Range(1, 7)
+        .Select(i => DateTime.Now.Date.AddDays(-i)).ToArray();
+
+        foreach (var day in last7Days)
+        {
+            daydate = ($"{day:yyyy-MM-dd}");
+            listofDates.Add(daydate);
+        }
+
+
+    }
+
+
+    public async void TheButtonClicked()
+    {
+        Last7days.Clear();
+
+        foreach (var item in dictSearch)
+        {
+            if (item.Value == firstVal)
+            {
+                CurrencySearch = item.Key;
+            }
+            else if (item.Value == secondVal)
+            {
+                CurrencySearch2 = item.Key;
+            }
+        }
+
+        foreach (var weekday in listofDates)
+        {
+            HttpClient clnt = new HttpClient();
+            String jsonString = await clnt.GetStringAsync("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/" + weekday + "/currencies/" + CurrencySearch + "/" + CurrencySearch2 + ".json");
+            JObject jsonObj = JObject.Parse(jsonString);
+
+            OrganizeData(jsonObj);
+
+        }
+
+        StateHasChanged();
+
+    }
+
+
+
+    public void OrganizeData(JObject data)
+    {
+        List<CurrencyLineChart> tempList = new List<CurrencyLineChart>();
+
+        CurrencyLineChart CurCoin = new CurrencyLineChart();
+
+        CurCoin.Period = Convert.ToDateTime(data["date"]);
+
+        CurCoin.Currency = Convert.ToDouble(data[CurrencySearch2]);
+
+        tempList.Add(CurCoin);
+
+
+        Last7days.AddRange(tempList);
+
+
+    }
+}
