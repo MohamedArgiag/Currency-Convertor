@@ -657,7 +657,7 @@
       "url": "_content\/Radzen.Blazor\/Radzen.Blazor.js"
     },
     {
-      "hash": "sha256-UtySQFJB5Sins+xnxSdrRa6tDuNEzmHW17i+WQZj\/2g=",
+      "hash": "sha256-rnVsBYIUhlIMkc11Lg5ezyUbbdDLJCT0bdCqPGgvB1s=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -1469,11 +1469,11 @@
       "url": "_framework\/dotnet.5.0.11.js"
     },
     {
-      "hash": "sha256-+du4q+FFr0miI3Jb3FxSyGQAquUFT2ucEibWsW5pQSo=",
+      "hash": "sha256-0SPJn45\/YdcWJp2io2s8ddpm5Wbb3oZuujOYN7byEjE=",
       "url": "_framework\/ca3.dll"
     },
     {
-      "hash": "sha256-ygIpOfSwBUvJTGPAS+5w8sSzIry0nrOCUleL7OHURAA=",
+      "hash": "sha256-g83smM1iNEq4EMqoTF7aYNguXUrnXX77uS5v0liCNu0=",
       "url": "_framework\/ca3.pdb"
     },
     {
@@ -2369,5 +2369,5 @@
       "url": "ca3.bundle.scp.css"
     }
   ],
-  "version": "bolhNaJR"
+  "version": "vDxWTjP0"
 };

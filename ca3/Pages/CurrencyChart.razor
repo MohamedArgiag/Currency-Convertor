@@ -7,8 +7,11 @@
 @using System.Collections.Generic
 @inject NavigationManager NavigationManager
 
+<link href="./css/StyleSheet.css" rel="stylesheet" />
 
-<h3>CurrencyChart</h3>
+
+<h3 class="text-center mt-5">Currency Line Chart</h3>
+<p class="text-center">Currenices conversion rates for the last 7 days</p>
 
 <div class="container">
     <div class="mb-5 w-25">
@@ -18,13 +21,13 @@
     </div>
 
 
-    <div class="w-25">
+    <div class="mb-5 w-25">
         <SfAutoComplete TValue="string" TItem="TickName" Placeholder="e.g. Euro" @bind-Value="@secondVal" DataSource="@coinList">
             <AutoCompleteFieldSettings Value="CurName"></AutoCompleteFieldSettings>
         </SfAutoComplete>
     </div>
 
-    <div class="mt-5">
+    <div class="mb-5 mt-5">
         <SfButton CssClass="e-custom" OnClick="TheButtonClicked">Enter</SfButton>
     </div>
 
@@ -34,13 +37,13 @@
             <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.DateTime" LabelFormat="yyyy-MM-dd" IntervalType="IntervalType.Days" EdgeLabelPlacement="EdgeLabelPlacement.Shift">
                 <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
             </ChartPrimaryXAxis>
-            <ChartPrimaryYAxis LabelFormat="{value}" RangePadding="ChartRangePadding.None" Minimum="0" Maximum="1" Interval=".20">
+            <ChartPrimaryYAxis LabelFormat="{value}" RangePadding="ChartRangePadding.None" Minimum="0" Maximum="@maxInterval" Interval="@interval">
                 <ChartAxisLineStyle Width="0"></ChartAxisLineStyle>
                 <ChartAxisMajorTickLines Width="0"></ChartAxisMajorTickLines>
             </ChartPrimaryYAxis>
             <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
             <ChartSeriesCollection>
-                <ChartSeries DataSource="@Last7days" Name="England" XName="Period" Width="2"
+                <ChartSeries DataSource="@Last7days" Name="Currency comparison" XName="Period" Width="2"
                              Opacity="1" YName="Currency" Type="ChartSeriesType.Line">
                     <ChartMarker Visible="true" Width="10" Height="10">
                     </ChartMarker>
@@ -62,11 +65,13 @@
     string CurrencySearch;
     string CurrencySearch2;
     string daydate;
-    DateTime[] last7Days;
     Dictionary<string, string> dictSearch = new Dictionary<string, string>();
     List<TickName> coinList = new List<TickName>();
     List<string> listofDates = new List<string>();
     List<CurrencyLineChart> Last7days = new List<CurrencyLineChart>();
+    Double maxInterval;
+    Double interval;
+
 
 
     protected async override void OnInitialized()
@@ -126,6 +131,7 @@
 
         }
 
+        Intervals(Last7days[0], Last7days[6]);
         StateHasChanged();
 
     }
@@ -146,6 +152,36 @@
 
 
         Last7days.AddRange(tempList);
+    }
+
+    public void Intervals(CurrencyLineChart data, CurrencyLineChart lastdata )
+    {
+        if (data.Currency < 1)
+        {
+            maxInterval = 1;
+            interval = 0.2;
+
+        }
+        else if(data.Currency < 10)
+        {
+            maxInterval = 10;
+            interval = 2;
+
+        }
+        else if(data.Currency < 100)
+        {
+            maxInterval = 100;
+            interval = 20;
+
+
+        }
+        else
+        {
+            maxInterval = data.Currency + 300;
+            interval = 200;
+
+        }
+       
 
 
     }

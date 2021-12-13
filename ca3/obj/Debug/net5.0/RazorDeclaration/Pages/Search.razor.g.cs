@@ -132,6 +132,12 @@ using Syncfusion.Blazor.DropDowns;
     Dictionary<string, string> dictSearch = new Dictionary<string, string>();
     List<TickName> coinList = new List<TickName>();
 
+    string CurrencySearch = "";
+    JObject jsonObj = new JObject();
+    Dictionary<string, string> DictObj = new Dictionary<string, string>();
+
+    public List<Currencycon> ListCurrency { get; set; }
+
 
     protected async override void OnInitialized()
     {
@@ -152,12 +158,6 @@ using Syncfusion.Blazor.DropDowns;
         }
     }
 
-
-    string CurrencySearch = "";
-    JObject jsonObj = new JObject();
-    Dictionary<string, string> DictObj = new Dictionary<string, string>();
-
-    public List<Currencycon> ListCurrency { get; set; }
 
 
     private async void TheButtonClicked()

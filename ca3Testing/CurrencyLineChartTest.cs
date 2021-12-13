@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using ca3;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ca3Testing
+namespace ca3Testing.Tests
 {
     [TestClass()]
-    class CurrencyLineChartTest
+    public class CurrencyLineChartTest
     {
         [TestMethod()]
         public void CurrencyLineTest_Period()

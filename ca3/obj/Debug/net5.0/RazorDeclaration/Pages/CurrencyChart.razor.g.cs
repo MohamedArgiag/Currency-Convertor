@@ -139,7 +139,7 @@ using System.Collections.Generic;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\CurrencyChart.razor"
+#line 61 "C:\Users\Mohamed\Documents\ead\ca3\ca3\Pages\CurrencyChart.razor"
        
 
     public string firstVal;
@@ -147,11 +147,13 @@ using System.Collections.Generic;
     string CurrencySearch;
     string CurrencySearch2;
     string daydate;
-    DateTime[] last7Days;
     Dictionary<string, string> dictSearch = new Dictionary<string, string>();
     List<TickName> coinList = new List<TickName>();
     List<string> listofDates = new List<string>();
     List<CurrencyLineChart> Last7days = new List<CurrencyLineChart>();
+    Double maxInterval;
+    Double interval;
+
 
 
     protected async override void OnInitialized()
@@ -211,6 +213,7 @@ using System.Collections.Generic;
 
         }
 
+        Intervals(Last7days[0], Last7days[6]);
         StateHasChanged();
 
     }
@@ -231,6 +234,36 @@ using System.Collections.Generic;
 
 
         Last7days.AddRange(tempList);
+    }
+
+    public void Intervals(CurrencyLineChart data, CurrencyLineChart lastdata )
+    {
+        if (data.Currency < 1)
+        {
+            maxInterval = 1;
+            interval = 0.2;
+
+        }
+        else if(data.Currency < 10)
+        {
+            maxInterval = 10;
+            interval = 2;
+
+        }
+        else if(data.Currency < 100)
+        {
+            maxInterval = 100;
+            interval = 20;
+
+
+        }
+        else
+        {
+            maxInterval = data.Currency + 300;
+            interval = 200;
+
+        }
+       
 
 
     }
