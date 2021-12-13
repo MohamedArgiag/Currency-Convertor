@@ -14,7 +14,5 @@ namespace ca3
 
         [Required]
         public string CoinAmount { get; set; }
-        
-
     }
 }
